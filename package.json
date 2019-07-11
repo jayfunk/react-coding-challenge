@@ -13,13 +13,18 @@
   "dependencies": {
     "@material-ui/core": "^3.8.2",
     "chance": "^0.8.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "lodash": "^4.17.2",
     "prop-types": "^15.5.8",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "^3.0.1"
+    "react-scripts": "^3.0.1",
+    "react-test-renderer": "^16.8.6"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  },
   "browserslist": {
     "production": [
       ">0.2%",

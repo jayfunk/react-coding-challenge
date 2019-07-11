@@ -1,44 +1,44 @@
-import Chance from 'chance'
-import lodash from 'lodash'
+import Chance from 'chance';
+import lodash from 'lodash';
 
 class MessageGenerator {
   constructor(options) {
-    this.messageCallback = options.messageCallback
-    this.stopGeneration = false
-    this.chance = new Chance()
+    this.messageCallback = options.messageCallback;
+    this.stopGeneration = false;
+    this.chance = new Chance();
   }
 
   stop() {
-    this.stopGeneration = true
+    this.stopGeneration = true;
   }
 
   start() {
-    this.stopGeneration = false
-    this.generate()
+    this.stopGeneration = false;
+    this.generate();
   }
 
   isStarted() {
-    return !this.stopGeneration
+    return !this.stopGeneration;
   }
 
   /**
-     * priority from 1 to 3, 1 = error, 2 = warning, 3 = info
-     * */
+   * priority from 1 to 3, 1 = error, 2 = warning, 3 = info
+   * */
   generate() {
     if (this.stopGeneration) {
-      return
+      return;
     }
-    const message = this.chance.string()
-    const priority = lodash.random(1, 3)
-    const nextInMS = lodash.random(500, 3000)
+    const message = this.chance.string();
+    const priority = lodash.random(1, 3);
+    const nextInMS = lodash.random(500, 3000);
     this.messageCallback({
       message,
       priority,
-    })
+    });
     setTimeout(() => {
-      this.generate()
-    }, nextInMS)
+      this.generate();
+    }, nextInMS);
   }
 }
 
-export default MessageGenerator
+export default MessageGenerator;
